@@ -6,6 +6,7 @@ const isActive = ref(false);
 const toggleNavbar = () => {
   isActive.value = !isActive.value;
 };
+
 </script>
 
 <template>
@@ -30,6 +31,7 @@ const toggleNavbar = () => {
       </div>
   
       <div class="navbar-menu" :class="{ 'is-active': isActive }">
+      
         <div class="navbar-start">
           <RouterLink class="navbar-item" to="/">Home</RouterLink>
           <RouterLink class="navbar-item" to="/carlisiting">Car Listing</RouterLink>
@@ -75,6 +77,22 @@ const toggleNavbar = () => {
 
 .navbar-menu{
     margin-bottom: 10px;
+}
+
+
+.navbar-burger{
+  color: #f5f5f5;
+}
+@media screen and  (max-width: 970px){
+
+  .navbar-menu{
+    width: 100%;
+  }
+
+  .navbar-item{
+    color: black;
+    /* text-align: right; */
+  }
 }
   </style>
   
