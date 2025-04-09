@@ -1,13 +1,45 @@
+<!-- M = mothly Payment
+P = loan Amount = Vehicle price - Down Payment - trade-in
+r = monthly interest rate =  -->
+
 <template>
     <div class="main">
         <h1>Payment calc page</h1>
         <div class="graph"></div>
-        <div class="calculator"></div>
+
+        <div class="calculator">
+            <form>
+                <label for="cost">Vehicle Price:</label><br>
+                <input type="text" id="cost" name="cost" value=0.00><br>
+                
+                <label for="payment">Down Payment</label><br>
+                <input type="text" id="payment" name="payment" value=0.00><br>
+
+                <label for="rate">Interest Rate:</label><br>
+                <input type="text" id="rate" name="rate" value=0.00><br>
+                               
+                <label for="monthly_term">Montly Term:</label><br>
+                <input type="text" id="monthly_term" name="monthly_term" value=0><br>
+
+                <label for="trade_in">Trade In:</label><br>
+                <input type="text" id="trade_in" name="trade_in" value=0.00><br><br>
+
+                <!-- <button type="button" @click="calculateMonthlyPayment()">Submit</button> -->
+                <button type="button" id="submit">Submit</button>
+                
+            </form>
+            <div class="result">
+                <h2>Monthly Payment:</h2>
+                <p id="monthly_payment"></p>
+            </div>
+            
+        </div>
     </div>
+
 </template>
 
 <script setup>
-import { onMounted} from 'vue';
+import {onMounted} from 'vue';
 
     onMounted(() => {
         const graphData = [
@@ -113,20 +145,78 @@ import { onMounted} from 'vue';
         .delay((data, index) => index * 50);
     });
 
+
+    $(document).ready(() => {
+        $("#submit").click(function() {
+            $("#monthly_payment").html( "$" + calculateMonthlyPayment())
+        });
+    })
+
+    // $(document).ready(() => {
+    //     $("#cost").val()
+    // });
+
+    function calculateMonthlyPayment(){
+        var vehicle_price = parseFloat(document.getElementById("cost").value).toFixed(2);
+
+        var rate = ((parseFloat(document.getElementById("rate").value)))/100/12;
+
+        var down_payment = parseFloat(document.getElementById("payment").value).toFixed(2);
+
+        var monthly_term = parseInt(document.getElementById("monthly_term").value)
+        
+        var trade_in = parseFloat(document.getElementById("trade_in").value)
+
+        return parseFloat(((vehicle_price - down_payment - trade_in) * rate)/
+                        (1 -( Math.pow((1+rate),-monthly_term)))).toFixed(2);
+
+    }
+
+
+
+
+    
  
 </script>
 
 <style scoped>
+
+    *{
+        margin: 0;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+   
     .graph{
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         padding-left: 20px;
+        
     }
 
     .main{
         background-color: #EEE5E9;
-        height: 100vh;
+        height: auto;   
     }
     
+    .calculator{
+    
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 20px;
+    }
+
+    .result{
+        display: flex;
+        padding-left: 30px;
+    }
+
+    #monthly_payment{
+        padding-left: 35px;
+    }
+
+
 </style>
