@@ -5,24 +5,31 @@ r = monthly interest rate =  -->
 <template>
     <div class="main">
         <h1>Payment calc page</h1>
-        <div class="graph"></div>
+        <div class="graph-holder">
+            <div class="graph-p">
+                <p>Over the years, vehicle prices have steadily increased due to advancements in technology, improved safety features, and rising production costs. Modern cars now come equipped with high-end infotainment systems, fuel-efficient engines, and driver-assist technologies, all of which contribute to higher overall prices. Additionally, global supply chain challenges and inflation have further impacted the cost of both new and used vehicles. As a result, buyers today may notice that prices are significantly higher compared to just a few years ago, making it more important than ever to consider long-term value and reliability when choosing a vehicle.</p>
+            </div>
+            <div class="graph"></div>
+        </div>
+    </div>
 
-        <div class="calculator">
+    <div class="calculator">
+            <h1>Ready to buy?</h1>
             <form>
                 <label for="cost">Vehicle Price:</label><br>
-                <input type="text" id="cost" name="cost" value=0.00><br>
+                <input type="text" id="cost" name="cost" placeholder="10000"><br>
                 
                 <label for="payment">Down Payment</label><br>
-                <input type="text" id="payment" name="payment" value=0.00><br>
+                <input type="text" id="payment" name="payment" placeholder=2000><br>
 
                 <label for="rate">Interest Rate:</label><br>
-                <input type="text" id="rate" name="rate" value=0.00><br>
+                <input type="text" id="rate" name="rate" placeholder=2><br>
                                
                 <label for="monthly_term">Montly Term:</label><br>
-                <input type="text" id="monthly_term" name="monthly_term" value=0><br>
+                <input type="text" id="monthly_term" name="monthly_term" placeholder=12><br>
 
                 <label for="trade_in">Trade In:</label><br>
-                <input type="text" id="trade_in" name="trade_in" value=0.00><br><br>
+                <input type="text" id="trade_in" name="trade_in" placeholder=0><br><br>
 
                 <!-- <button type="button" @click="calculateMonthlyPayment()">Submit</button> -->
                 <button type="button" id="submit">Submit</button>
@@ -34,7 +41,6 @@ r = monthly interest rate =  -->
             </div>
             
         </div>
-    </div>
 
 </template>
 
@@ -75,10 +81,17 @@ import {onMounted} from 'vue';
                         .domain([0, 100000])
                         .range([chartHeight, 0]);
 
+    // let svg = d3.select('.graph')
+    //                 .append('svg')
+    //                     .attr('width', width)
+    //                     .attr('height', height);
+
     let svg = d3.select('.graph')
-                    .append('svg')
-                        .attr('width', width)
-                        .attr('height', height);
+    .append('svg')
+    .attr('viewBox', `0 0 ${width} ${height}`)
+    .attr('preserveAspectRatio', 'xMidYMid meet')
+    .classed('responsive-svg', true);
+
     
     // title
     svg.append('text')
@@ -171,20 +184,31 @@ import {onMounted} from 'vue';
                         (1 -( Math.pow((1+rate),-monthly_term)))).toFixed(2);
 
     }
-
-
-
-
-    
- 
 </script>
 
 <style scoped>
 
-    *{
-        margin: 0;
-        padding: 0px;
-        box-sizing: border-box;
+    .main{
+        padding: 30px 2%;
+        background-color: #EEE5E9;
+        color: #7C7C7C;
+    }
+
+    h1{
+        text-align: center;
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .graph-holder{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .graph-p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
    
     .graph{
@@ -192,31 +216,84 @@ import {onMounted} from 'vue';
         align-items: center;
         justify-content: center;
         padding-left: 20px;
-        
     }
 
-    .main{
-        background-color: #EEE5E9;
-        height: auto;   
-    }
-    
     .calculator{
-    
-      margin-top: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-bottom: 20px;
+        padding: 30px 2%;
+        background-color: #7C7C7C;
+        color: #EEE5E9;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .calculator label{
+        font-size: 20px;
     }
 
     .result{
+        margin-top: 20px;
         display: flex;
-        padding-left: 30px;
+    }
+
+    input{
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .calculator button{
+        background-color: #92DCE5;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        font-size: 15px;
+    }
+
+    .calculator button:hover{
+        background-color: #a3ccd2;
+    }
+
+    .result h2{
+        font-weight: 500;
     }
 
     #monthly_payment{
-        padding-left: 35px;
+        padding-left: 10px;
     }
 
+    /* Adaptive styling */
+    @media screen and (max-width: 1100px){
+        .graph-holder{
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media screen and (max-width: 780px){
+        .graph svg {
+            width: 100% !important;
+            height: 100px !important;
+        }
+    }
+
+    @media screen and (max-width: 780px){
+        h1{
+            font-size: 20px;
+        }
+
+        .calculator label{
+            font-size: 15px;
+        }
+
+        input{
+            font-size: 12px;
+        }
+    }
 
 </style>
