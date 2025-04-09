@@ -1,56 +1,20 @@
 <script setup>
 // @ is an alias for src, making this an absolute path
 import CarsComp from '@/components/header/CarsComp.vue'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
-const carCards = ref([
-  {
-    id: 5928101,
-    img: 'NissanAltima.jpg',
-    model: '2017 Nissan Altima',
-    cost: "28,000",
-    km: "170,000"
-  },
-  {
-    id: 4582797,
-    img: 'bmw34oi.jpg',
-    model: '2018 BMW 340i',
-    cost: '45,000',
-    km: '109,000'
-  },
-  {
-    id: 8419988,
-    img: 'HondaAccord.jpg',
-    model: '2017 Honda Accord Coupe',
-    cost: '24,000',
-    km: '178,900'
-    
-  },
-  {
-    id: 5928101,
-    img: 'NissanAltima.jpg',
-    model: '2017 Nissan Altima',
-    cost: "28,000",
-    km: "170,000"
-  },
-  {
-    id: 4582797,
-    img: 'bmw34oi.jpg',
-    model: '2018 BMW 340i',
-    cost: "45,000",
-    km: "109,000"
-  },
-  {
-    id: 8419988,
-    img: 'HondaAccord.jpg',
-    model: '2017 Honda Accord Coupe',
-    cost: "24,000",
-    km: "178,900"
-    
-  },
-  
-  
-])
+
+const carCards = ref([])
+
+onMounted(async () => {
+  try {
+    const res = await fetch('http://localhost:3000/api/inventory')
+    const data = await res.json()
+    carCards.value = data
+  } catch (error) {
+    console.error('Failed to fetch car inventory:', error)
+  }
+})
 </script>
 
 <template>
@@ -66,17 +30,18 @@ const carCards = ref([
   <style scoped>
   .inventory-page {
     background-color: #EEE5E9;
-    min-height: 100vh;
     padding: 30px 2%;
     color: #7C7C7C;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .store {
     display: grid;
-    grid-template-columns: auto auto auto;
-    justify-content: space-evenly;
-    text-align: center;
-    row-gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 100px;
   }
   
   .inventory-title {
@@ -88,19 +53,15 @@ const carCards = ref([
     margin-bottom: 20px;
   }
   
-  @media screen and (max-width: 780px) {
-    .store {
-      grid-template-columns: 1fr;
-    }
-  
+  @media screen and (max-width: 1100px) {
     .inventory-title {
       font-size: 30px;
-    }
+    } 
   }
   
-  @media screen and (max-width: 650px) {
-    .inventory-title {
-      font-size: 25px;
+  @media screen and (max-width: 780px) {
+    .store{
+      grid-template-columns: 1fr;
     }
   }
   </style>

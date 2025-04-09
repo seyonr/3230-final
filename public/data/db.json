@@ -1,0 +1,47 @@
+{
+    "cars": [
+      {
+        "id": 5928100,
+        "img": "bmwm3.jpg",
+        "model": "2018 BMW M3",
+        "cost": "78,000",
+        "km": "20,000"
+      },
+      {
+        "id": 4582797,
+        "img": "bmw34oi.jpg",
+        "model": "2018 BMW 340i",
+        "cost": "45,000",
+        "km": "109,000"
+      },
+      {
+        "id": 8419988,
+        "img": "HondaAccord.jpg",
+        "model": "2017 Honda Accord Coupe",
+        "cost": "24,000",
+        "km": "178,900"
+      },
+      {
+        "id": 5928101,
+        "img": "NissanAltima.jpg",
+        "model": "2017 Nissan Altima",
+        "cost": "28,000",
+        "km": "170,000"
+      },
+      {
+        "id": 4582799,
+        "img": "corolla.jpg",
+        "model": "1997 Toyota Corolla",
+        "cost": "13,000",
+        "km": "50,000"
+      },
+      {
+        "id": 8419989,
+        "img": "odyssey.jpeg",
+        "model": "1999 Honda Odyssey",
+        "cost": "5,000",
+        "km": "346,000"
+      }
+    ]
+  }
+  
