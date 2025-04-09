@@ -10,6 +10,7 @@ import Header from '../components/header/Header.vue';
             <div class="button-div">
                 <RouterLink to="/carlisiting" class="button-s">Browse Cars</RouterLink>
                 <RouterLink to="/paymentcalc" class="button-s">Estimate Payments</RouterLink>
+                
             </div>
         </div>
         <div class="right-div">

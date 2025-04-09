@@ -22,6 +22,12 @@ const router = createRouter({
       name: 'PaymentCalc',
       component: PaymentCalc,
     },
+    {
+      path: '/located',
+      name: 'Located',
+      component: () => import('@/views/Located.vue')
+    }
+    
     // {
     //   path: '/about',
     //   name: 'about',

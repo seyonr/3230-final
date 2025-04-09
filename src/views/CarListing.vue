@@ -8,44 +8,44 @@ const carCards = ref([
     id: 5928101,
     img: 'NissanAltima.jpg',
     model: '2017 Nissan Altima',
-    cost: 28000,
-    km: 170000
+    cost: "28,000",
+    km: "170,000"
   },
   {
     id: 4582797,
     img: 'bmw34oi.jpg',
     model: '2018 BMW 340i',
-    cost: 45000,
-    km: 109000
+    cost: '45,000',
+    km: '109,000'
   },
   {
     id: 8419988,
     img: 'HondaAccord.jpg',
     model: '2017 Honda Accord Coupe',
-    cost: 24000,
-    km: 178900
+    cost: '24,000',
+    km: '178,900'
     
   },
   {
     id: 5928101,
     img: 'NissanAltima.jpg',
     model: '2017 Nissan Altima',
-    cost: 28000,
-    km: 170000
+    cost: "28,000",
+    km: "170,000"
   },
   {
     id: 4582797,
     img: 'bmw34oi.jpg',
     model: '2018 BMW 340i',
-    cost: 45000,
-    km: 109000
+    cost: "45,000",
+    km: "109,000"
   },
   {
     id: 8419988,
     img: 'HondaAccord.jpg',
     model: '2017 Honda Accord Coupe',
-    cost: 24000,
-    km: 178900
+    cost: "24,000",
+    km: "178,900"
     
   },
   

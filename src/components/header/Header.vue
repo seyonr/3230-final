@@ -36,6 +36,7 @@ const toggleNavbar = () => {
           <RouterLink class="navbar-item" to="/">Home</RouterLink>
           <RouterLink class="navbar-item" to="/carlisiting">Car Listing</RouterLink>
           <RouterLink class="navbar-item" to="/paymentcalc">Payment Calculator</RouterLink>
+          <RouterLink class="navbar-item" to="/Located">Located</RouterLink>
         </div>
       </div>
     </nav>
