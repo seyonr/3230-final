@@ -1,17 +1,10 @@
-<template>
-    <div class="map-container">
-      <h1 class="text-2xl font-bold mb-4">Car Lot Location - Ontario</h1>
-      <div id="map" class="map"></div>
-    </div>
-  </template>
-  
-  <script setup>
+<script setup>
   import { onMounted } from 'vue'
   import L from 'leaflet'
   import 'leaflet/dist/leaflet.css'
   
   onMounted(() => {
-    const map = L.map('map').setView([43.65107, -79.347015], 12) // Toronto, ON
+    const map = L.map('map').setView([43.65107, -79.347015], 12) 
   
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
@@ -23,6 +16,15 @@
       .openPopup()
   })
   </script>
+  
+
+<template>
+    <div class="map-container">
+      <h1 class="text-2xl font-bold mb-4">Singaraj Motors - Ontario</h1>
+      <div id="map" class="map"></div>
+    </div>
+  </template>
+  
   
   <style scoped>
   .map-container {
