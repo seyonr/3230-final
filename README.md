@@ -6,7 +6,7 @@ Instructions to Run the Application:
 2.  **Install Dependencies:**
     * Open a terminal or command prompt.
     * Navigate to the root directory of the project (the `3230-final` folder).
-    * Run the following command to install the necessary packages:
+    * Run the following command to install all necessary packages listed in package.json:
         ```
         npm install
         ```
