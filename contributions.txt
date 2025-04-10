@@ -1,5 +1,5 @@
-Kowsikan - PaymentCalc and styling help for header
-Jinothan - CarListing and Landing 
-Seyon - Header, Landing, Overall Styling, Server.js (used to incorporate with CarListing)
+Kowsikan & Naveenan – Worked on the Payment Calculator, including form functionality, layout, and styling adjustments to ensure a smooth and responsive user experience.
 
+Jinothan & Kobisan – Developed the Car Listing and Landing pages, showcasing the vehicle inventory. They also assisted with setting up and troubleshooting the server.js file to support dynamic rendering.
 
+Seyon & Mabishan – Designed and implemented the Header, Landing Page, and handled overall site styling for a clean and modern look. They also configured and integrated the backend using server.js to support seamless navigation and data display.
