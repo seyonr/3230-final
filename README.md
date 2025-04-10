@@ -10,6 +10,11 @@ Instructions to Run the Application:
         ```
         npm install
         ```
+    * If you run into any problems with the packages.json folder; running this would solve
+        ```
+        npm install express cors
+        npm install leaflet
+        ```
 
 3.  **Run the Application:**
     * You will need two separate terminals open in the project's root directory (`3230-final`).
