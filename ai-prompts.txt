@@ -1,0 +1,6 @@
+-- Located.vue
+Show me code on how to use Leaflet to point to a specific location and put the caption 'We are here!'
+
+-- Landing.vue
+Generate a slogan for Singaraj Motors.
+Generate an About Us page for car dealership that goes by the name of Singaraj Motors.

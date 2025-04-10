@@ -42,9 +42,6 @@ const toggleNavbar = () => {
     </nav>
   </template>
 
-
-
-
   <style scoped>
   /* Optional: Custom background color */
   svg{
