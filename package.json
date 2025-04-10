@@ -13,6 +13,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "final_project": "file:",
     "leaflet": "^1.9.4",
     "pinia": "^3.0.1",
     "vue": "^3.5.13",
