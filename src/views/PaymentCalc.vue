@@ -214,13 +214,12 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-x: auto; /* ✅ fixes cutoff issue */
+    overflow-x: auto; 
     padding-left: 20px;
     width: 100%;
     max-width: 100%;
 }
 
-/* Make sure the SVG is responsive */
 .graph svg {
     max-width: 100%;
     height: auto;
@@ -276,7 +275,6 @@ input {
     padding-left: 10px;
 }
 
-/* Responsive styling */
 @media screen and (max-width: 1100px) {
     .graph-holder {
         grid-template-columns: 1fr;
